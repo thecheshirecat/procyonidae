@@ -181,4 +181,20 @@ main {
 		}
 	}
 }
+.notFound {
+	text-align: center;
+	padding-top: 50px;
+	h1 {
+		@include textDecorated($black, $white, 50px);
+		font-family: 'Luckiest Guy';
+		text-transform: uppercase;
+		margin-bottom: 50px;
+		line-height: 25px;
+		span {
+			display: block;
+			font-size: 100px;
+			line-height: 100px;
+		}
+	}
+}
 @import './styles/responsive.scss';

@@ -10,7 +10,6 @@ class UploadContent extends Component {
         this.state = {
             images: []
         }
-
         /* url para saber donde buscar las imágenes */
         this.url = this.props.url;
         if(this.props.guests) {
