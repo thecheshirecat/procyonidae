@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css?family=Luckiest+Guy');
+@import './styles/styling.scss';
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	background-color: rgba(0, 0, 0, .15);
+}
+a {
+	text-decoration: none;
+	color: $black;
+}
+
+header {
+	background-image: linear-gradient(to right, rgba(114,164,224,1) 0%, rgba(179,179,179,1) 100%);
+	padding: 20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	.logo {
+		font-family: 'Luckiest Guy';
+		font-weight: normal;
+		@include textDecorated($white, $black, 24px);
+		line-height: 20px;
+		user-select: none;
+		transition: all .5s;
+		text-align: center;
+		a {
+			color: $white;
+			span {
+				display: block;
+				font-size: 32px;
+				line-height: 22px;
+			}
+		}
+		&:hover {
+			@include textDecorated($black, $white, 24px);
+			a {
+				color: $black;
+			}
+		}
+	}
+}
+nav {
+	position: relative;
+	ul {
+		position: relative;
+		z-index: 2;
+		display: flex;
+		flex-direction: row;
+		li {
+			display: block;
+			padding: 0 10px;
+			a {
+				display: block;
+				padding: 5px 0;
+				position: relative;
+				margin: 5px 0;
+				font-weight: bold;
+				&.active {
+					color: $white;
+					&::after {
+						width: 100%;
+					}
+				}
+				&::after {
+					@include pseudoElement(initial, initial, 0, 0);
+					background-color: $white;
+					height: 2px;
+					width: 0;
+					transition: width .5s ease-in-out;
+				}
+				&:hover {
+					color: $white;
+					&::after {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+}
+main {
+	.uploadSection {
+		h2 {
+			position: relative;
+			background-color: $black;
+			overflow: hidden;
+			padding: 5px 20px;
+			@include textDecorated($white, $black, 14px);
+			text-transform: uppercase;
+			&.guest {
+				background-color: $mainGreen;
+			}
+			&::after {
+				@include pseudoElement(-7px, -7px, initial, initial);
+				width: 53px;
+				height: 53px;
+				position: absolute;
+				transform: rotate(45deg) translate(50%, 0);
+				transform-origin: center;
+				background-color: $white;
+				opacity: .5;
+			}
+		}
+		.uploadedContent {
+			display: grid;
+			grid-template-columns: repeat(6, calc(100% / 6));
+			padding: 20px 0;
+			flex-wrap: wrap;
+			max-width: 1280px;
+			margin: auto;
+			transition: all .5s;
+			.imageThumbnailContainer {
+				text-align: center;
+				display: flex;
+				flex-direction: column;
+				position: relative;
+				z-index: 1;
+				.thumbnail {
+					transition: all .5s;
+					width: 100%;
+					height: calc(100vw / 7 - 20px);
+					display: flex;
+					position: relative;
+					align-items: center;
+					justify-content: center;
+					background-color: rgba(0,0,0,.2);
+					overflow: hidden;
+					.image {
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+						background-size: cover;
+						background-position: center;
+						transition: transform .5s;
+						will-change: transform;
+						&:hover {
+							transform: scale(1.1, 1.1);
+						}
+					}
+				}
+				.imageInfo {
+					display: flex;
+					flex-direction: column;
+					flex-grow: 1;
+					justify-content: center;
+					background-color: $white;
+					padding: 10px;
+					box-shadow: inset 0 0 2px 0 $black;
+					z-index: 1;
+					position: relative;
+					span {
+						font-size: 12px;
+						&.author {
+							font-size: 10px;
+							font-weight: normal;
+						}
+						&.title {
+							font-size: 14px;
+						}
+						a {
+							color: $black;
+							font-weight: bold;
+							&.authorName {
+								font-style: italic;
+								&:hover {
+									text-decoration: underline;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+@import './styles/responsive.scss';

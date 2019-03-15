@@ -1,0 +1,20 @@
+$mainBlue: #4467c7;
+$mainGreen: #21e286;
+$white: #ffffff;
+$black: #000000;
+
+@mixin textDecorated($colorText, $colorBorder, $fontSize) {
+    color: $colorText;
+    text-shadow: 0 0 2px $colorBorder;
+    font-size: $fontSize;
+}
+
+@mixin pseudoElement($top, $right, $bot, $left) {
+    display: block;
+    position: absolute;
+    content: '';
+    top: $top;
+    left: $left;
+    bottom: $bot;
+    right: $right;
+}
