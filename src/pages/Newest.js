@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import UploadContent from '../components/UploadContent';
-import { URL } from '../constants/Links';
+import { URL } from '../constants';
 
 class Newest extends Component {
     constructor(props) {

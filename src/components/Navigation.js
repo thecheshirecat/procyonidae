@@ -1,26 +1,26 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 
+import { HOME, NEWEST, POPULAR, SHARE_ART } from '../constants';
+
 class Navigation extends Component {
-    changeActiveLink = (name) => {
-        this.props.setActiveLink(name);
-    }
     render () {
+        console.log(this.props)
         const navOptions = [
             {
-                name: "Home",
+                name: HOME,
                 url: "/"
             },
             {
-                name: "Newest",
+                name: NEWEST,
                 url: "/newest"
             },
             {
-                name: "Popular",
+                name: POPULAR,
                 url: "/popular"
             },
             {
-                name: "Share your art",
+                name: SHARE_ART,
                 url: "/share-your-art"
             }
         ]
@@ -30,11 +30,11 @@ class Navigation extends Component {
                     {
                         navOptions.map(nav => {
                             let active = ""
-                            this.props.activeLink === nav.name ? active = "active" : active = ''
+                            this.props.section === nav.name ? active = "active" : active = ''
                             return <li key={nav.name}>
                                     <Link 
                                         to={nav.url} 
-                                        onClick={() => this.changeActiveLink(nav.name)}
+                                        onClick={() => this.props.changeSection(nav.name)}
                                         className={active}
                                         >
                                     <span>{nav.name}</span>

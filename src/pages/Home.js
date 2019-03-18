@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import UploadContent from '../components/UploadContent';
 
-import { URL, GUEST_URL } from '../constants/Links';
+import { URL, GUEST_URL } from '../constants';
 
 class Home extends Component {
     render () {

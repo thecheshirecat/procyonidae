@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import Navigation from './Navigation';
 import { Link } from 'react-router-dom';
+import { HOME } from '../constants';
+import NavContainer from './../containers/NavContainer';
 
 class Header extends Component {
     state = {
-        activeLink: "Home"
+        activeLink: HOME
     }
     changeActiveLink = (activeLink) => {
         this.setState({
@@ -20,7 +22,7 @@ class Header extends Component {
                         <span>JUNKYARD</span>
                     </Link>
                 </h1>
-                <Navigation setActiveLink={this.changeActiveLink} activeLink={this.state.activeLink}/>
+                <NavContainer />
             </header>
         )
     }

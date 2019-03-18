@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import ImageContainer from './ImageContainer';
 import { Link } from 'react-router-dom';
+import { URL } from '../constants'
 
 /* URL to search the images */
-const URL = 'http://10.10.2.19:8010';
 
 class UploadContent extends Component {
     constructor(props) {
