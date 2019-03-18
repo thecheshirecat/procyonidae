@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import UploadContent from '../components/UploadContent';
-import { URL } from '../constants';
+import { URL, NEWEST } from '../constants';
 
 class Newest extends Component {
     constructor(props) {
@@ -8,6 +8,7 @@ class Newest extends Component {
         this.state = {
             currentPage: 1
         }
+        this.props.changeSection(NEWEST)
     }
     componentDidMount() {
         if(this.props.match.params.page !== undefined) {
