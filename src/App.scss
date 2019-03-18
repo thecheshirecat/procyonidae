@@ -213,7 +213,8 @@ main {
 		padding: 5px;
 		text-decoration: underline;
 		@include textDecorated($black, $white, 16px);
-		&:hover {
+		&:hover,
+		&.active {
 			@include textDecorated($white, $black, 16px);
 		}
 	}

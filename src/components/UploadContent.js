@@ -64,11 +64,17 @@ class UploadContent extends Component {
     paginatorCreator() {
         var pages = []; 
         for( let i = 1; i <= this.state.pages; i++) {
+            let active= '';
+            if(i === this.state.currentPage) {
+                active = 'active';
+            }
             pages.push(
                 <Link 
                     to={`/newest/${i}`} 
                     key={i} 
-                    onClick={() => this.updatePage(i)}>
+                    onClick={() => this.updatePage(i)}
+                    className={active}
+                    >
                     {i}
                 </Link>
             )
