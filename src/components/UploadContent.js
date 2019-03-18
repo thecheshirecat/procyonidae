@@ -1,16 +1,19 @@
 import React, { Component } from 'react'
 import ImageContainer from './ImageContainer';
+import { Link } from 'react-router-dom';
 
-/* URL Para buscar las imágenes */
+/* URL to search the images */
 const URL = 'http://10.10.2.19:8010';
 
 class UploadContent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            images: []
+            images: [],
+            currentPage: this.props.currentPage,
+            pages: 1
         }
-        /* url para saber donde buscar las imágenes */
+        /* URL to fetch images, guests or not */
         this.url = this.props.url;
         if(this.props.guests) {
             this.path = `${URL}/guests`;
@@ -20,11 +23,22 @@ class UploadContent extends Component {
         }
     }
     static defaultProps = {
-        paginator: 7,
-        guests: false
+        paginator: 6,
+        guests: false,
+        showPaginator: false,
+        currentPage: 1
+    }
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(prevProps.currentPage !== undefined) {
+            if(prevProps.currentPage.toString() !== this.props.currentPage.toString()) {
+                this.setState({
+                    currentPage: this.props.currentPage
+                })
+            }
+        }
     }
     componentDidMount() {
-		var images = [];
+        var images = [];
         fetch(this.url)
         .then(response => response.json())
         .then(data => {
@@ -38,33 +52,82 @@ class UploadContent extends Component {
                 return null;
             });
             this.setState({
-                images
+                images,
+                pages: Math.ceil(images.length / this.props.paginator)
             })
         })
     }
+    updatePage = (page) => {
+        this.props.updatePage(page);
+    }
+    // Creating the paginator
+    paginatorCreator() {
+        var pages = []; 
+        for( let i = 1; i <= this.state.pages; i++) {
+            pages.push(
+                <Link 
+                    to={`/newest/${i}`} 
+                    key={i} 
+                    onClick={() => this.updatePage(i)}>
+                    {i}
+                </Link>
+            )
+        }
+        return pages
+    }
     render () {
-        var i = -1;
+        // Setting variables to show X items and pages
+        var startingItem = (this.state.currentPage - 1) * this.props.paginator;
+        var numItems = this.props.paginator;
+        if( this.state.currentPage > 1) {
+            numItems = this.state.currentPage * this.props.paginator
+        }
+        var index = 0;
         return (
             <div className={`uploadSection`}>
                 <h2 className={this.props.additionalClasses}>
                     {this.props.title}
                 </h2>
-                <div className="uploadedContent">
+                <div>
                     {
                         this.state.images.length === 0 
                         ? <div>No images found</div>
-                        : this.state.images.map( image => {
-                            if( i < this.props.paginator ) {
-                                i++;
-                                return <ImageContainer 
-                                    src={image.image} 
-                                    title={image.title} 
-                                    author={image.author} 
-                                    key={i} />
+                        : startingItem > this.state.images.length ?
+                        <div>There are not enough images still =(</div>
+                        : <div>
+                            <div className="uploadedContent">
+                            {
+                                this.state.images.map( image => {
+                                    if(index < startingItem) {
+                                        index++;
+                                        return null;
+                                    }
+                                    else {
+                                        if( startingItem < numItems ) {
+                                            let imageObj = <ImageContainer 
+                                            src={image.image} 
+                                            title={image.title} 
+                                            author={image.author} 
+                                            key={startingItem} />
+                                            startingItem++;
+                                            index++;
+                                            return imageObj;
+                                        }
+                                        else {
+                                            index++;
+                                            return null;
+                                        }
+                                    }
+                                })
                             }
-                            else
-                                return null;
-                        })
+                            </div>
+                            {
+                                this.state.images.length > this.props.paginator && this.props.showPaginator
+                                ?
+                                    <div className="paginator">{this.paginatorCreator()}</div>
+                                : null
+                            }
+                        </div>
                     }
                 </div>
             </div>

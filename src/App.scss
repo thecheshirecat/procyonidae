@@ -61,6 +61,10 @@ nav {
 				position: relative;
 				margin: 5px 0;
 				font-weight: bold;
+				font-family: 'Luckiest Guy';
+				text-transform: uppercase;
+				font-size: 16px;
+				letter-spacing: .5px;
 				&.active {
 					color: $white;
 					&::after {
@@ -194,6 +198,23 @@ main {
 			display: block;
 			font-size: 100px;
 			line-height: 100px;
+		}
+	}
+}
+.paginator {
+	margin: auto;
+	max-width: 1280px;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	a {
+		font-family: 'Luckiest Guy';
+		font-size: 16px;
+		padding: 5px;
+		text-decoration: underline;
+		@include textDecorated($black, $white, 16px);
+		&:hover {
+			@include textDecorated($white, $black, 16px);
 		}
 	}
 }

@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import UploadContent from '../components/UploadContent';
 
-const URL = 'http://10.10.2.19:8010';
-const GUEST_URL = 'http://10.10.2.19:8010/guests.php';
+import { URL, GUEST_URL } from '../constants/Links';
 
 class Home extends Component {
     render () {

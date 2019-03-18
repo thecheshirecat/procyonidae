@@ -15,7 +15,7 @@ class App extends Component {
 				<main>
 					<Switch>
 						<Route exact path="/" component={Home} />
-						<Route exact path="/newest" component={Newest} />
+						<Route path="/newest/:page?" component={Newest} />
 						<Route component={NotFound} />
 					</Switch>
 				</main>
