@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 class Pagination extends Component {
     constructor(props) {
         super(props)
-        console.log(props)
         this.state = {
             pages: this.props.pages,
             active: this.props.currentPage,
@@ -15,7 +14,7 @@ class Pagination extends Component {
         let pages = []
         for(let i = 1; i <= this.state.pages; i++) {
             let active = ''
-            if(i === this.props.newestCurrentPage) {
+            if(i === this.props.currentPage) {
                 active = 'active'
             }
             pages.push(
@@ -23,7 +22,7 @@ class Pagination extends Component {
                     key={i}
                     className={active}
                     to={`${this.state.linkTo}/${i}`}
-                    onClick={() => this.props.setNewestCurrentPage(i)}>
+                    onClick={() => this.props.setcurrentPage(i)}>
                     {i}
                 </Link>
             )

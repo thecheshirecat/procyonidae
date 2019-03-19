@@ -5,16 +5,16 @@ import Pagination from '../components/Pagination';
 
 const mapStateToProps = state => {
     return {
-        newestCurrentPage: state.newestCurrentPage
+        currentPage: state.currentPage
     }
 }
 
 const mapDispatchToProps = dispatch => {
     console.log(dispatch)
     return {
-        setNewestCurrentPage: (page) => dispatch({
+        setcurrentPage: (page) => dispatch({
             type: NEWEST_CURRENT_PAGE,
-            newestCurrentPage: page
+            currentPage: page
         })
     }
 }

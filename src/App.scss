@@ -114,11 +114,11 @@ main {
 		.uploadedContent {
 			display: grid;
 			grid-template-columns: repeat(6, calc(100% / 6));
-			padding: 20px 0;
 			flex-wrap: wrap;
 			max-width: 1280px;
-			margin: auto;
+			margin: 20px auto;
 			transition: all .5s;
+			box-shadow: 0 0 12px 0 #000;
 			.imageThumbnailContainer {
 				text-align: center;
 				display: flex;

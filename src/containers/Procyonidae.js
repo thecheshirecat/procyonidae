@@ -5,7 +5,7 @@ import App from './../App';
 
 const mapStateToProps = state => {
     return {
-        newestCurrentPage: state.newestCurrentPage
+        currentPage: state.currentPage
     }
 }
 
@@ -13,7 +13,7 @@ const mapDispatchToProps = dispatch => {
     return {
         newCurrentPage: (page) => dispatch({
             type: NEWEST_CURRENT_PAGE,
-            newestCurrentPage: page
+            currentPage: page
         })
     }
 }
