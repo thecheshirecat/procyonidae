@@ -1,40 +1,30 @@
 import React, { Component } from 'react'
-import UploadedContent from '../components/UploadedContent';
+import UploadedContentContainer from './../containers/UploadedContentContainer';
 import { URL, NEWEST } from '../constants';
 
 class Newest extends Component {
     constructor(props) {
         super(props)
-        this.state = {
-            currentPage: 1
-        }
         this.props.changeSection(NEWEST)
     }
     componentDidMount() {
+        // Check if URL has param page, if it does not have one, set current page to 1
         if(this.props.match.params.page !== undefined) {
-            this.setState({
-                currentPage: this.props.match.params.page
-            })
+            this.props.setCurrentPage(this.props.match.params.page)
         }
-    }
-    changePage = (page) => {
-        this.setState({
-            currentPage: page
-        })
-    }
-    shouldComponentUpdate() {
-        return true;
+        else {
+            this.props.setCurrentPage(1)
+        }
     }
     render () {
         return (
             <main>
-                <UploadedContent 
+                <UploadedContentContainer
                     title={'My latest drawings'} 
                     url={URL} 
-                    paginator={12} 
-                    currentPage={this.state.currentPage}
-                    showPaginator 
-                    updatePage={this.changePage} />
+                    pagination={12} 
+                    currentPage={this.props.currentPage}
+                    showPagination  />
             </main>
         )
     }

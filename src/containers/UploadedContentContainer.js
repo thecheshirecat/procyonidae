@@ -1,7 +1,7 @@
 import { CURRENT_PAGE } from '../constants'
 import { connect } from 'react-redux';
 
-import App from './../App';
+import UploadedContent from '../components/UploadedContent';
 
 const mapStateToProps = state => {
     return {
@@ -23,6 +23,6 @@ const createConnection = connect(
     mapDispatchToProps
 )
 
-const ComponentWithConnectionToRedux = createConnection(App);
+const ComponentWithConnectionToRedux = createConnection(UploadedContent);
 
 export default ComponentWithConnectionToRedux;

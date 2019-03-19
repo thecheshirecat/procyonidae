@@ -1,9 +1,19 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 
-import { HOME, NEWEST, POPULAR, SHARE_ART } from '../constants';
+import { HOME, NEWEST, POPULAR, SHARE_ART, GUESTS } from './../constants';
+
+/*
+    Clicking the navigation will fire two actions:
+    1. Change the current page of the pagination to 1
+    2. Set the store state "section" to the name of the section clicked
+*/
 
 class Navigation extends Component {
+    navHandleClick = (name) => {
+        this.props.changeSection(name);
+        this.props.setCurrentPage();
+    }
     render () {
         const navOptions = [
             {
@@ -17,6 +27,10 @@ class Navigation extends Component {
             {
                 name: POPULAR,
                 url: "/popular"
+            },
+            {
+                name: GUESTS,
+                url: "/guests-art"
             },
             {
                 name: SHARE_ART,
@@ -33,7 +47,7 @@ class Navigation extends Component {
                             return <li key={nav.name}>
                                     <Link 
                                         to={nav.url} 
-                                        onClick={() => this.props.changeSection(nav.name)}
+                                        onClick={() => this.navHandleClick(nav.name)}
                                         className={active}
                                         >
                                     <span>{nav.name}</span>

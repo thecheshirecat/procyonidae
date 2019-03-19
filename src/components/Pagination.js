@@ -14,15 +14,15 @@ class Pagination extends Component {
         let pages = []
         for(let i = 1; i <= this.state.pages; i++) {
             let active = ''
-            if(i === this.props.currentPage) {
-                active = 'active'
+            if(i === parseInt(this.props.currentPage)) {
+                active = 'active';
             }
             pages.push(
                 <Link
                     key={i}
                     className={active}
                     to={`${this.state.linkTo}/${i}`}
-                    onClick={() => this.props.setcurrentPage(i)}>
+                    onClick={() => this.props.setCurrentPage(i)}>
                     {i}
                 </Link>
             )

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { NEWEST_CURRENT_PAGE } from '../constants';
+import { CURRENT_PAGE } from '../constants';
 import Pagination from '../components/Pagination';
 
 const mapStateToProps = state => {
@@ -10,10 +10,9 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-    console.log(dispatch)
     return {
-        setcurrentPage: (page) => dispatch({
-            type: NEWEST_CURRENT_PAGE,
+        setCurrentPage: (page) => dispatch({
+            type: CURRENT_PAGE,
             currentPage: page
         })
     }
