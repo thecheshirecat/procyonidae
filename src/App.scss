@@ -187,7 +187,7 @@ main {
 }
 .notFound {
 	text-align: center;
-	padding-top: 50px;
+	padding: 50px 0;
 	h1 {
 		@include textDecorated($black, $white, 50px);
 		font-family: 'Luckiest Guy';
@@ -202,16 +202,19 @@ main {
 	}
 }
 .pagination {
-	margin: auto;
+	margin: 0 auto 20px auto;
+	padding-right: 20px;
 	max-width: 1280px;
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-end;
+	align-items: center;
 	a {
+		text-align: center;
+		display: block;
 		font-family: 'Luckiest Guy';
 		font-size: 16px;
 		padding: 5px;
-		text-decoration: underline;
 		@include textDecorated($black, $white, 16px);
 		&:hover,
 		&.active {
