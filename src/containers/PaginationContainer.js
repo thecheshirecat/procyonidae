@@ -1,7 +1,7 @@
-import { NEWEST_CURRENT_PAGE } from '../constants'
 import { connect } from 'react-redux';
 
-import App from './../App';
+import { NEWEST_CURRENT_PAGE } from '../constants';
+import Pagination from '../components/Pagination';
 
 const mapStateToProps = state => {
     return {
@@ -10,8 +10,9 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
+    console.log(dispatch)
     return {
-        newCurrentPage: (page) => dispatch({
+        setNewestCurrentPage: (page) => dispatch({
             type: NEWEST_CURRENT_PAGE,
             newestCurrentPage: page
         })
@@ -23,6 +24,6 @@ const createConnection = connect(
     mapDispatchToProps
 )
 
-const ComponentWithConnectionToRedux = createConnection(App);
+const ComponentWithConnectionToRedux = createConnection(Pagination);
 
 export default ComponentWithConnectionToRedux;

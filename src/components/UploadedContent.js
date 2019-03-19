@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import ImageContainer from './ImageContainer';
-import { Link } from 'react-router-dom';
 import { URL } from '../constants'
+import PaginationContainer from '../containers/PaginationContainer';
 
 /* URL to search the images */
 
-class UploadContent extends Component {
+class UploadedContent extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -61,25 +61,10 @@ class UploadContent extends Component {
         this.props.updatePage(page);
     }
     // Creating the paginator
-    paginatorCreator() {
-        var pages = []; 
-        for( let i = 1; i <= this.state.pages; i++) {
-            let active= '';
-            if(i === this.state.currentPage) {
-                active = 'active';
-            }
-            pages.push(
-                <Link 
-                    to={`/newest/${i}`} 
-                    key={i} 
-                    onClick={() => this.updatePage(i)}
-                    className={active}
-                    >
-                    {i}
-                </Link>
-            )
-        }
-        return pages
+    paginationCreator() {
+        return <PaginationContainer
+            pages={this.state.pages}
+            linkTo={'/newest'} />
     }
     render () {
         // Setting variables to show X items and pages
@@ -130,7 +115,7 @@ class UploadContent extends Component {
                             {
                                 this.state.images.length > this.props.paginator && this.props.showPaginator
                                 ?
-                                    <div className="paginator">{this.paginatorCreator()}</div>
+                                    this.paginationCreator()
                                 : null
                             }
                         </div>
@@ -141,4 +126,4 @@ class UploadContent extends Component {
     }
 }
 
-export default UploadContent
+export default UploadedContent

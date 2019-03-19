@@ -1,21 +1,26 @@
-import { HOME, CHANGE_SECTION, NEW_CURRENT_PAGE } from '../constants'
+import { HOME, CHANGE_SECTION, NEWEST_CURRENT_PAGE } from '../constants'
 
 const INITIAL_STATE = {
-    newCurrentPage: 1,
+    newestCurrentPage: 1,
     section: HOME
 }
 
 export function procyonidaeReducer(state = INITIAL_STATE, action) {
     switch (action.type) {
         case CHANGE_SECTION:
-            return {
+            state = {
+                ...state,
                 section: action.section
             }
-        case NEW_CURRENT_PAGE:
-            return {
-                newCurrentPage: action.newCurrentPage
+            break;
+        case NEWEST_CURRENT_PAGE:
+            state = {
+                ...state,
+                newestCurrentPage: action.newestCurrentPage
             }
+            break;
         default: 
-            return state;
+            break;
     }
+    return state;
 }

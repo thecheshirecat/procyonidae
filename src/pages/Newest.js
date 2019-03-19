@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import UploadContent from '../components/UploadContent';
+import UploadedContent from '../components/UploadedContent';
 import { URL, NEWEST } from '../constants';
 
 class Newest extends Component {
@@ -28,7 +28,7 @@ class Newest extends Component {
     render () {
         return (
             <main>
-                <UploadContent 
+                <UploadedContent 
                     title={'My latest drawings'} 
                     url={URL} 
                     paginator={12} 

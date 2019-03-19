@@ -5,7 +5,6 @@ import { HOME, NEWEST, POPULAR, SHARE_ART } from '../constants';
 
 class Navigation extends Component {
     render () {
-        console.log(this.props)
         const navOptions = [
             {
                 name: HOME,

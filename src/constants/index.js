@@ -6,5 +6,5 @@ export const NEWEST = 'NEWEST';
 export const POPULAR = 'POPULAR';
 export const SHARE_ART = 'SHARE YOUR ART';
 
-export const NEW_CURRENT_PAGE = 'NEW_CURRENT_PAGE';
+export const NEWEST_CURRENT_PAGE = 'NEW_CURRENT_PAGE';
 export const CHANGE_SECTION = 'CHANGE_SECTION';

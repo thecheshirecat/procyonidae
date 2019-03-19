@@ -7,7 +7,7 @@ class Header extends Component {
         return (
             <header>
                 <h1 className="logo">
-                    <Link to="/">
+                    <Link to={"/"}>
                         PROCYONIDAE<br />
                         <span>JUNKYARD</span>
                     </Link>
