@@ -100,7 +100,10 @@ class UploadedContent extends Component {
                                     : null
                                     }
                             </div>
-                        : <div>Still not enough images :(</div>
+                        : <div className="notFound">
+                            <h1>Still not enough images :(</h1>
+                            <p>Maybe on a near future there will be more!</p>
+                        </div>
                     }
             </div>
         )
