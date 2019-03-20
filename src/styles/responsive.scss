@@ -29,7 +29,7 @@
                 grid-template-columns: repeat(4, calc(100% / 4));
                 .imageThumbnailContainer {
                     .thumbnail {
-                        height: calc(100vw / 4 - 20px)
+                        height: calc(100vw / 4)
                     }
                     .imageInfo {
                         padding: 5px;
@@ -50,7 +50,7 @@
                 margin-top: 0;
                 .imageThumbnailContainer {
                     .thumbnail {
-                        height: calc(100vw / 3 - 20px)
+                        height: calc(100vw / 3)
                     }
                     .imageInfo {
                         padding: 5px;
@@ -61,6 +61,11 @@
                 border-top: 0;
                 padding-top: 0;
             }
+        }
+    }
+    form {
+        .inputContainer {
+            width: 100%;
         }
     }
 }

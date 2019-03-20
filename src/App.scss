@@ -8,6 +8,7 @@
 }
 body {
 	background-color: rgba(0, 0, 0, .15);
+	overflow-x: hidden;
 }
 a {
 	text-decoration: none;
@@ -23,7 +24,6 @@ a {
 		line-height: 14px;
 	}
 }
-
 header {
 	background-image: linear-gradient(to right, rgba(114,164,224,1) 0%, rgba(179,179,179,1) 100%);
 	padding: 20px;
@@ -124,9 +124,6 @@ main {
 		.uploadedContent {
 			display: grid;
 			grid-template-columns: repeat(6, calc(100% / 6));
-			flex-wrap: wrap;
-			max-width: 1280px;
-			margin: 20px auto;
 			transition: all .5s;
 			.imageThumbnailContainer {
 				text-align: center;
@@ -134,10 +131,11 @@ main {
 				flex-direction: column;
 				position: relative;
 				z-index: 1;
+				width: 100%;
 				.thumbnail {
 					transition: all .5s;
 					width: 100%;
-					height: calc(100vw / 7 - 20px);
+					height: calc(100vw / 6);
 					display: flex;
 					position: relative;
 					align-items: center;
@@ -197,6 +195,7 @@ main {
 	.mainContainer {
 		max-width: 1280px;
 		margin: 20px auto;
+		padding: 0 20px;
 		p {
 			margin-bottom: 20px;
 		}
@@ -233,11 +232,10 @@ form {
 	}
 }
 .pagination {
-	margin: 0 auto 20px auto;
+	margin: 20px 0;
 	padding-right: 20px;
 	padding-top: 20px;
 	border-top: 1px solid $gray;
-	max-width: 1280px;
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-end;
