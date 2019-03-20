@@ -30,7 +30,7 @@ class Navigation extends Component {
             },
             {
                 name: GUESTS,
-                url: "/guests-art"
+                url: "/guests"
             },
             {
                 name: SHARE_ART,

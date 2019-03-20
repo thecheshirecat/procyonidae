@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import UploadedContentContainer from './../containers/UploadedContentContainer';
 
-import { URL, GUEST_URL } from '../constants';
+import { URL, GUESTS_URL } from '../constants';
 
 class Home extends Component {
     render () {
@@ -13,7 +13,7 @@ class Home extends Component {
 				<UploadedContentContainer
                     title={'Latest guests uploads'}
                     additionalClasses={"guest"}
-                    url={GUEST_URL}
+                    url={GUESTS_URL}
                     guests />
             </main>
         )
