@@ -8,7 +8,8 @@ import Home from './pages/Home';
 import NewestContainer from './containers/NewestContainer'
 import GuestsContainer from './containers/GuestsContainer'
 import { NotFound } from './pages/NotFound';
-import { NEWEST, GUESTS } from './constants';
+import { NEWEST_URL_, GUESTS_URL_, SHARE_ART_URL_ } from './constants';
+import ShareArtContainer from './containers/ShareArtContainer';
 
 class App extends Component {
 	render() {
@@ -18,8 +19,9 @@ class App extends Component {
 				<main>
 					<Switch>
 						<Route exact path="/" component={Home} />
-						<Route path={`/${NEWEST}/:page?`} component={NewestContainer} />
-						<Route path={`/${GUESTS}/:page?`} component={GuestsContainer} />
+						<Route path={`/${NEWEST_URL_}/:page?`} component={NewestContainer} />
+						<Route path={`/${GUESTS_URL_}/:page?`} component={GuestsContainer} />
+						<Route path={`/${SHARE_ART_URL_}/:page?`} component={ShareArtContainer} />
 						<Route component={NotFound} />
 					</Switch>
 				</main>

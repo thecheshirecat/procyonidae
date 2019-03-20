@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 
-import { HOME, NEWEST, POPULAR, SHARE_ART, GUESTS } from './../constants';
+import { HOME, NEWEST, POPULAR, SHARE_ART, GUESTS, NEWEST_URL_, GUESTS_URL_, SHARE_ART_URL_ } from './../constants';
 
 /*
     Clicking the navigation will fire two actions:
@@ -22,7 +22,7 @@ class Navigation extends Component {
             },
             {
                 name: NEWEST,
-                url: "/newest"
+                url: `/${NEWEST_URL_}`
             },
             {
                 name: POPULAR,
@@ -30,11 +30,11 @@ class Navigation extends Component {
             },
             {
                 name: GUESTS,
-                url: "/guests"
+                url: `/${GUESTS_URL_}`
             },
             {
                 name: SHARE_ART,
-                url: "/share-your-art"
+                url: `/${SHARE_ART_URL_}`
             }
         ]
         return (
@@ -43,6 +43,8 @@ class Navigation extends Component {
                     {
                         navOptions.map(nav => {
                             let active = ""
+
+                            console.log(this.props)
                             this.props.section === nav.name ? active = "active" : active = ''
                             return <li key={nav.name}>
                                     <Link 

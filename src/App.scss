@@ -12,6 +12,16 @@ body {
 a {
 	text-decoration: none;
 	color: $black;
+	&.button {
+		display: inline-block;
+		padding: 10px;
+		padding-bottom: 5px;
+		background-color: $mainBlue;
+		color: $white;
+		font-family: 'Luckiest Guy';
+		font-size: 14px;
+		line-height: 14px;
+	}
 }
 
 header {
@@ -181,6 +191,27 @@ main {
 						}
 					}
 				}
+			}
+		}
+	}
+	.mainContainer {
+		max-width: 1280px;
+		margin: 20px auto;
+		p {
+			margin-bottom: 20px;
+		}
+	}
+}
+form {
+	.inputContainer {
+		width: 50%;
+		margin-bottom: 20px;
+		input {
+			outline: 0;
+			&[type="text"] {
+				border: 0;
+				padding: 10px 5px;
+				width: 100%;
 			}
 		}
 	}

@@ -1,5 +1,8 @@
 export const URL = 'http://10.10.2.19:8010';
 export const GUESTS_URL = 'http://10.10.2.19:8010/guests.php';
+export const NEWEST_URL_ = 'newest';
+export const GUESTS_URL_ = 'guests';
+export const SHARE_ART_URL_ = 'share-your-art';
 
 export const HOME = 'HOME';
 export const NEWEST = 'NEWEST';
