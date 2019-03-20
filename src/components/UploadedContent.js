@@ -24,7 +24,8 @@ class UploadedContent extends Component {
     // Default props if not specified
     static defaultProps = {
         pagination: 6,
-        showPagination: false
+        showPagination: false,
+        guests: false
     }
     componentDidMount() {
         var images = [];

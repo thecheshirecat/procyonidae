@@ -2,6 +2,7 @@ $mainBlue: #4467c7;
 $mainGreen: #21e286;
 $white: #ffffff;
 $black: #000000;
+$gray: #b5b5b5;
 
 @mixin textDecorated($colorText, $colorBorder, $fontSize) {
     color: $colorText;

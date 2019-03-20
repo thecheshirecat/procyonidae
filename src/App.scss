@@ -204,6 +204,8 @@ main {
 .pagination {
 	margin: 0 auto 20px auto;
 	padding-right: 20px;
+	padding-top: 20px;
+	border-top: 1px solid $gray;
 	max-width: 1280px;
 	display: flex;
 	flex-direction: row;
@@ -213,8 +215,9 @@ main {
 		text-align: center;
 		display: block;
 		font-family: 'Luckiest Guy';
-		font-size: 16px;
 		padding: 5px;
+		padding-bottom: 0;
+		line-height: 9px;
 		@include textDecorated($black, $white, 16px);
 		&:hover,
 		&.active {

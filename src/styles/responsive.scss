@@ -47,6 +47,7 @@
         .uploadSection {
             .uploadedContent {
                 grid-template-columns: repeat(3, calc(100% / 3));
+                margin-top: 0;
                 .imageThumbnailContainer {
                     .thumbnail {
                         height: calc(100vw / 3 - 20px)
@@ -55,6 +56,10 @@
                         padding: 5px;
                     }
                 }
+            }
+            .pagination {
+                border-top: 0;
+                padding-top: 0;
             }
         }
     }

@@ -20,9 +20,10 @@ class Guests extends Component {
         return (
             <main>
                 <UploadedContentContainer
-                    title={'Latest guests drawings'} 
-                    url={GUESTS_URL} 
-                    pagination={12} 
+                    title={'Latest guests drawings'}
+                    url={GUESTS_URL}
+                    pagination={12}
+                    additionalClasses={"guest"}
                     currentPage={this.props.currentPage}
                     showPagination
                     guests />
