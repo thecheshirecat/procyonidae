@@ -13,15 +13,25 @@ body {
 a {
 	text-decoration: none;
 	color: $black;
-	&.button {
-		display: inline-block;
-		padding: 10px;
-		padding-bottom: 5px;
-		background-color: $mainBlue;
-		color: $white;
-		font-family: 'Luckiest Guy';
-		font-size: 14px;
-		line-height: 14px;
+	outline: 0;
+}
+.button {
+	display: inline-block;
+	padding: 10px;
+	padding-bottom: 5px;
+	background-color: $mainBlue;
+	color: $white;
+	font-family: 'Luckiest Guy';
+	font-size: 14px;
+	line-height: 14px;
+	outline: 0;
+	border: 0;
+	cursor: pointer;
+	&:active {
+		background-color: $mainBlueActive;
+	}
+	&:disabled {
+		background-color: $gray;
 	}
 }
 header {
@@ -207,10 +217,21 @@ form {
 		margin-bottom: 20px;
 		input {
 			outline: 0;
+			&:-webkit-autofill {
+				animation-name: autofill;
+				animation-fill-mode: both;
+				@keyframes autofill {
+					to {
+						background: transparent;
+					}
+				}
+			}
 			&[type="text"] {
 				border: 0;
 				padding: 10px 5px;
 				width: 100%;
+				background-color: transparent;
+				border-bottom: 1px solid $gray;
 			}
 		}
 	}

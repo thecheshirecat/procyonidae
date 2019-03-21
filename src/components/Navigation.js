@@ -43,8 +43,6 @@ class Navigation extends Component {
                     {
                         navOptions.map(nav => {
                             let active = ""
-
-                            console.log(this.props)
                             this.props.section === nav.name ? active = "active" : active = ''
                             return <li key={nav.name}>
                                     <Link 

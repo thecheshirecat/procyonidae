@@ -1,9 +1,14 @@
-import React from 'react'
+    import React from 'react'
 
-const Button = (props) => {
-    return (
-        <a className="button" href={props.href} onClick={ () => props.handleClick() }>{props.text}</a>
-    )
-}
+    const Button = (props) => {
+        return (
+            <button 
+                className="button"
+                onClick={ () => props.handleClick() } 
+                disabled={props.isDisabled}>
+                {props.text}
+            </button>
+        )
+    }
 
-export default Button
+    export default Button
