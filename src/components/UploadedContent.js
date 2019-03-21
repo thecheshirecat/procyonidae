@@ -11,7 +11,8 @@ class UploadedContent extends Component {
         // State to get only images and number of pages
         this.state = {
             images: [],
-            pages: 1
+            pages: 1,
+            imagesLoaded: false
         }
         /* URL to fetch images, guests or not */
         if(this.props.guests) {
@@ -43,7 +44,8 @@ class UploadedContent extends Component {
             });
             this.setState({
                 images,
-                pages: Math.ceil(images.length / this.props.pagination)
+                pages: Math.ceil(images.length / this.props.pagination),
+                imagesLoaded: true
             })
         })
     }
@@ -64,8 +66,16 @@ class UploadedContent extends Component {
                     {this.props.title}
                 </h2>
                     {
-                        this.state.images.length === 0 
-                        ? <div>No images found</div>
+                        this.state.imagesLoaded === false 
+                        ? <div class="lds-ring">
+                            <div>
+                                <span>Loading images</span>
+                            </div>
+                        </div>
+                        : this.state.images.length === 0
+                        ? <div class="notFound">
+                            <h1>No images where found =(</h1>
+                        </div>
                         : this.props.currentPage <= this.state.pages
                             ? <div>
                                 <div className="uploadedContent">
