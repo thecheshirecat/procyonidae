@@ -35,7 +35,7 @@ class ShareArt extends Component {
                     console.log("image recieved")
                 }
                 else {
-                    console.log("error recieving image")
+                    console.log("error recieving image", data.message)
                 }
                 this.setState({
                     disabled: false
