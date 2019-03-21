@@ -43,11 +43,13 @@ class UploadedContent extends Component {
                 images.push(image);
                 return null;
             });
-            this.setState({
-                images,
-                pages: Math.ceil(images.length / this.props.pagination),
-                imagesLoaded: true
-            })
+            setTimeout(function() {
+                this.setState({
+                    images,
+                    pages: Math.ceil(images.length / this.props.pagination),
+                    imagesLoaded: true
+                })
+            }.bind(this), 1500);
         })
     }
     // Creating the pagination
@@ -68,7 +70,7 @@ class UploadedContent extends Component {
                 </h2>
                     {
                         this.state.imagesLoaded === false 
-                        ? <div class="lds-ring">
+                        ? <div className="lds-ring">
                             <div>
                                 <span>Loading images</span>
                             </div>

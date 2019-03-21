@@ -26,10 +26,10 @@
             }
             .uploadedContent {
                 padding: 0;
-                grid-template-columns: repeat(4, calc(100% / 4));
+                grid-template-columns: repeat(3, calc(100% / 3));
                 .imageThumbnailContainer {
                     .thumbnail {
-                        height: calc(100vw / 4)
+                        height: calc(100vw / 3)
                     }
                     .imageInfo {
                         padding: 5px;
@@ -45,18 +45,6 @@
     }
     main {
         .uploadSection {
-            .uploadedContent {
-                grid-template-columns: repeat(3, calc(100% / 3));
-                margin-top: 0;
-                .imageThumbnailContainer {
-                    .thumbnail {
-                        height: calc(100vw / 3)
-                    }
-                    .imageInfo {
-                        padding: 5px;
-                    }
-                }
-            }
             .pagination {
                 border-top: 0;
                 padding-top: 0;
