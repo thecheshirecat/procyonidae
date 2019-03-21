@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { URL } from './../constants/index';
 import ImageContent from './ImageContent';
+import Error from './Error';
 import PaginationContainer from '../containers/PaginationContainer';
 
 /* URL to search the images */
@@ -73,9 +74,9 @@ class UploadedContent extends Component {
                             </div>
                         </div>
                         : this.state.images.length === 0
-                        ? <div class="notFound">
+                        ? <Error>
                             <h1>No images where found =(</h1>
-                        </div>
+                        </Error>
                         : this.props.currentPage <= this.state.pages
                             ? <div>
                                 <div className="uploadedContent">
