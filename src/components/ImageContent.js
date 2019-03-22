@@ -9,10 +9,10 @@ class ImageContainer extends Component {
                 </a>
                 <div className="imageInfo">
                     <span className="title">
-                        <a href="/">{this.props.title}</a>
+                        <a href={this.props.link}>{this.props.title}</a>
                     </span>
                     <span className="author">
-                        by <a href="/" className="authorName">{this.props.author}</a>
+                        by <span className="authorName">{this.props.author}</span>
                     </span>
                 </div>
             </div>

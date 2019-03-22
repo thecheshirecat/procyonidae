@@ -27,5 +27,4 @@
             "recieved" => "KO"
         );
     }
-    echo json_encode($imageSend);
 ?>

@@ -56,7 +56,7 @@ class ShareArt extends Component {
                             name="image-artist"
                             value={this.state.imageArtist}
                             onChange={e => this.setState({imageArtist: e.target.value })}
-                            placeholder="Your name" />
+                            placeholder="Artist name" />
                     </div>
                     <div className="inputContainer">
                         <input

@@ -180,6 +180,13 @@ main {
 					z-index: 1;
 					position: relative;
 					span {
+						&.authorName {
+							font-weight: bold;
+							font-style: italic;
+							&:hover {
+								text-decoration: underline;
+							}
+						}
 						font-size: 12px;
 						&.author {
 							font-size: 10px;
@@ -191,12 +198,6 @@ main {
 						a {
 							color: $black;
 							font-weight: bold;
-							&.authorName {
-								font-style: italic;
-								&:hover {
-									text-decoration: underline;
-								}
-							}
 						}
 					}
 				}
