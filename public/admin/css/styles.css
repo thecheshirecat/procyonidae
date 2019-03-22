@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: system-ui;
 }
 form {
     max-width: 768px;
@@ -72,9 +73,11 @@ form .guest p {
 .logo a {
     color: white;
     text-decoration: none;
+    font-family: 'Luckiest Guy';
 }
 .logo a span {
     display: block;
     font-size: 32px;
     line-height: 22px;
+    font-family: 'Luckiest Guy';
 }

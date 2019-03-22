@@ -135,7 +135,6 @@ main {
 		.uploadedContent {
 			display: grid;
 			grid-template-columns: repeat(6, calc(100% / 6));
-			transition: all .5s;
 			.imageThumbnailContainer {
 				text-align: center;
 				display: flex;
