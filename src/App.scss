@@ -44,7 +44,7 @@ header {
 	.logo {
 		font-family: 'Luckiest Guy';
 		font-weight: normal;
-		@include textDecorated($white, $black, 24px);
+		@include textDecorated($white, $black, 37px);
 		line-height: 20px;
 		user-select: none;
 		transition-property: color, text-shadow;

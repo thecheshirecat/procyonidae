@@ -71,7 +71,7 @@ if( isset($_POST["author"]) ) {
         <form action="./" method="POST" enctype="multipart/form-data">
             <div class="logo">
                 <a href="/">
-                    Procyonidae<br/>
+                    Raccoon<br/>
                     <span>Junkyard</span>
                 </a>
             </div>

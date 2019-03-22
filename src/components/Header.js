@@ -8,7 +8,7 @@ class Header extends Component {
             <header>
                 <h1 className="logo">
                     <Link to={"/"}>
-                        PROCYONIDAE<br />
+                        RACCOON<br />
                         <span>JUNKYARD</span>
                     </Link>
                 </h1>
