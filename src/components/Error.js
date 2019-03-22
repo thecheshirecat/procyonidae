@@ -2,7 +2,7 @@ import React from 'react'
 
 const Error = (props) => {
     return (
-        <div class="notFound">
+        <div className="notFound">
             {props.children}
         </div>
     )

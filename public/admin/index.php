@@ -16,7 +16,7 @@ if( isset($_POST["author"]) ) {
         $image = $_FILES["image"];
         $nombre = changeFileName($image["name"]);
         // Absolute path to store image
-        $ruta = "./images/";
+        $ruta = "images/";
         $path = $ruta.$nombre;
 
         if( move_uploaded_file($image["tmp_name"], $path) ) {

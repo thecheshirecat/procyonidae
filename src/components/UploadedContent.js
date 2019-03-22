@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { URL } from './../constants/index';
+import { IMAGE_URL, ART_URL } from './../constants/index';
 import ImageContent from './ImageContent';
 import Error from './Error';
 import PaginationContainer from '../containers/PaginationContainer';
@@ -17,10 +17,10 @@ class UploadedContent extends Component {
         }
         /* URL to fetch images, guests or not */
         if(this.props.guests) {
-            this.path = `${URL}/guests`;
+            this.path = `${ART_URL}?guest=1`;
         }
         else {
-            this.path = `${URL}/images`;
+            this.path = `${ART_URL}?guest=0`;
         }
     }
     // Default props if not specified
@@ -31,25 +31,23 @@ class UploadedContent extends Component {
     }
     componentDidMount() {
         var images = [];
-        fetch(this.props.url)
+        fetch(this.path)
         .then(response => response.json())
         .then(data => {
             Object.keys(data).map( key => {
                 let image = {
-                    "image": `${this.path}/${data[key].folder}/${data[key].image}`,
+                    "image": `${IMAGE_URL}/${data[key].path}`,
                     "author": data[key].author,
                     "title": data[key].title
                 }
                 images.push(image);
                 return null;
             });
-            setTimeout(function() {
-                this.setState({
-                    images,
-                    pages: Math.ceil(images.length / this.props.pagination),
-                    imagesLoaded: true
-                })
-            }.bind(this), 1500);
+            this.setState({
+                images,
+                pages: Math.ceil(images.length / this.props.pagination),
+                imagesLoaded: true
+            });
         })
     }
     // Creating the pagination

@@ -1,9 +1,9 @@
-// export const URL = '/images/';
-// export const GUESTS_URL = '/images/guests.php';
-// export const SHARE_ART_URL = '/images/share-art.php';
+// export const IMAGE_URL = '/admin';
+// export const ART_URL = 'admin/my-art.php';
+// export const SHARE_ART_URL = 'admin/share-art.php';
 
-export const URL = 'http://10.10.2.19:8010';
-export const GUESTS_URL = 'http://10.10.2.19:8010/guests.php';
+export const IMAGE_URL = 'http://10.10.2.19:8010/';
+export const ART_URL = 'http://10.10.2.19:8010/my-art.php';
 export const SHARE_ART_URL = 'http://10.10.2.19:8010/share-art.php';
 
 export const NEWEST_URL_ = 'newest';

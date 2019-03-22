@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import UploadedContentContainer from './../containers/UploadedContentContainer';
-import { GUESTS_URL, GUESTS } from '../constants';
+import { GUESTS } from '../constants';
 
 class Guests extends Component {
     constructor(props) {
@@ -21,7 +21,6 @@ class Guests extends Component {
             <main>
                 <UploadedContentContainer
                     title={'Latest guests drawings'}
-                    url={GUESTS_URL}
                     pagination={12}
                     additionalClasses={"guest"}
                     currentPage={this.props.currentPage}
