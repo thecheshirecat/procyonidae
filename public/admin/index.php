@@ -69,6 +69,12 @@ if( isset($_POST["author"]) ) {
     </head>
     <body>
         <form action="./" method="POST" enctype="multipart/form-data">
+            <div class="logo">
+                <a href="/">
+                    Procyonidae<br/>
+                    <span>Junkyard</span>
+                </a>
+            </div>
             <input type="text" name="author" value="<?= $_POST["author"]?>" placeholder="Artist">
             <input type="text" name="title" value="<?= $_POST["title"]?>" placeholder="Title">
             <input type="file" name="image">

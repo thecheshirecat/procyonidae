@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Luckiest+Guy');
 * {
     margin: 0;
     padding: 0;
@@ -46,4 +47,34 @@ form .guest {
 form .guest p {
     margin-right: 10px;
     font: 400 11px system-ui;
+}
+.logo {
+    margin: 20px auto 20px 0;
+    font-family: 'Luckiest Guy';
+    font-weight: normal;
+    line-height: 20px;
+    user-select: none;
+    transition-property: color, text-shadow;
+    transition-duration: .5s, .5s;
+    text-align: center;
+    color: white;
+    text-shadow: 0 0 2px black;
+    font-size: 24px;
+}
+.logo:hover {
+    color: black;
+    text-shadow: 0 0 2px white;
+
+}
+.logo:hover a {
+    color: black;
+}
+.logo a {
+    color: white;
+    text-decoration: none;
+}
+.logo a span {
+    display: block;
+    font-size: 32px;
+    line-height: 22px;
 }

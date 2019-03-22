@@ -47,7 +47,8 @@ header {
 		@include textDecorated($white, $black, 24px);
 		line-height: 20px;
 		user-select: none;
-		transition: all .5s;
+		transition-property: color, text-shadow;
+		transition-duration: .5s, .5s;
 		text-align: center;
 		a {
 			color: $white;
