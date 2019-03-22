@@ -38,3 +38,12 @@ form .success {
     border-radius: 2px;
     padding: 0 10px;
 }
+form .guest {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+form .guest p {
+    margin-right: 10px;
+    font: 400 11px system-ui;
+}

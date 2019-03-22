@@ -4,7 +4,7 @@ class ImageContainer extends Component {
     render () {
         return (
             <div className="imageThumbnailContainer">
-                <a className="thumbnail" href="/">
+                <a className="thumbnail" href={this.props.link}>
                     <div className="image" style={{backgroundImage: `url(${this.props.src})`}}></div>
                 </a>
                 <div className="imageInfo">

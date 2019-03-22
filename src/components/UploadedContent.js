@@ -35,10 +35,22 @@ class UploadedContent extends Component {
         .then(response => response.json())
         .then(data => {
             Object.keys(data).map( key => {
-                let image = {
-                    "image": `${IMAGE_URL}/${data[key].path}`,
-                    "author": data[key].author,
-                    "title": data[key].title
+                let image = {}
+                if( parseInt(data[key].guest) === 1 ) {
+                    image = {
+                        "image": `${IMAGE_URL}/${data[key].path}`,
+                        "author": data[key].author,
+                        "title": data[key].title,
+                        "path": data[key].source
+                    }
+                }
+                else {
+                    image = {
+                        "image": `${IMAGE_URL}/${data[key].path}`,
+                        "author": data[key].author,
+                        "title": data[key].title,
+                        "path": `/admin/${data[key].path}`
+                    }
                 }
                 images.push(image);
                 return null;
@@ -87,7 +99,8 @@ class UploadedContent extends Component {
                                             src={image.image} 
                                             title={image.title} 
                                             author={image.author} 
-                                            key={index} />
+                                            key={index}
+                                            link={image.path} />
                                         if(index < startingItem) {
                                             index++;
                                             return null;
