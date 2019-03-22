@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+form {
+    max-width: 768px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+form input,
+form button {
+    outline: 0;
+    margin: 10px 0;
+    padding: 10px;
+    display: block;
+    background-color: white;
+    border: 1px solid #ababab;
+}
+form button {
+    background-color: #ababab;
+    color: white;
+}
+form button:hover {
+    background-color: #a0a0a0;
+}
+form button:active {
+    background-color: #6f6f6f;
+}
+form .error {
+    border: 10px solid red;
+    border-radius: 2px;
+    padding: 0 10px;
+}
+form .success {
+    border: 10px solid greenyellow;
+    border-radius: 2px;
+    padding: 0 10px;
+}
