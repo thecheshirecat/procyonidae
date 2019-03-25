@@ -24,6 +24,7 @@
   ],
   "devDependencies": {
     "prop-types": "^15.7.2",
+    "react-google-recaptcha": "^1.0.5",
     "react-redux": "^6.0.1",
     "redux": "^4.0.1"
   }
