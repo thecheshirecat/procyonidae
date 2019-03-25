@@ -3,6 +3,7 @@
 	//Connection to DB
 	function connectDB() {
 		$link = mysqli_connect("localhost", "root", "45674567", "procyonidae") or die ("Error ".mysqli_error($link));
+		// $link = mysqli_connect("localhost", "u629458618_junk", "Temporal2019", "u629458618_junk") or die ("Error ".mysqli_error($link));
 		return $link;
 	}
 	//Make a query to consult

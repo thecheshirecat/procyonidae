@@ -59,7 +59,7 @@ header {
 			}
 		}
 		&:hover {
-			@include textDecorated($black, $white, 24px);
+			@include textDecorated($black, $white, 37px);
 			a {
 				color: $black;
 			}

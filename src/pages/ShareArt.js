@@ -30,17 +30,15 @@ class ShareArt extends Component {
         .then(response => response.json())
         .then(data => {
             console.log(data)
-            setTimeout(function() {
-                if(data.recieved === "OK") {
-                    console.log("image recieved")
-                }
-                else {
-                    console.log("error recieving image", data.message)
-                }
-                this.setState({
-                    disabled: false
-                })
-            }.bind(this), 1000);
+            if(data.recieved === "OK") {
+                console.log("image recieved")
+            }
+            else {
+                console.log("error recieving image", data.message)
+            }
+            this.setState({
+                disabled: false
+            })
         })
     }
     render () {

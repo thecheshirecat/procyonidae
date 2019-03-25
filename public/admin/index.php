@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 <?php
+session_start();
 include("funcs.php");
 include("db.php");
 $form = array(
@@ -60,14 +60,29 @@ if( isset($_POST["author"]) ) {
         $error["message"] .= "No image has been uploaded.";
     }
 }
-
+if(!isset($_SESSION["admin"])) {
+    $_SESSION["admin"] = false;
+}
+if( isset($_POST["admin"]) ) {
+    if( $_POST["admin"] == "admin" && $_POST["password"] == "Temporal2019") {
+        $_SESSION["admin"] = true;
+    }
+    else {
+        $error["error"] = true;
+        $error["message"] = "Usuario incorrecto";
+    }
+}
 ?>
+<!DOCTYPE html>
 <html>
     <head>
         <title>Admin - Adding image</title>
         <link rel="stylesheet" type="text/css" href="css/styles.css" />
     </head>
     <body>
+        <?php
+        if( $_SESSION["admin"] ) {
+        ?>
         <form action="./" method="POST" enctype="multipart/form-data">
             <div class="logo">
                 <a href="/">
@@ -96,5 +111,22 @@ if( isset($_POST["author"]) ) {
                 }
             ?>
         </form>
+        <?php
+        }
+        else {
+            ?>
+        <form method="post">
+            <input type="text" name="admin" placeholder="Admin" />
+            <input type="password" name="password" placeholder="Password" />
+            <button type="submit">Log in</button>
+            <?php
+                if($error["error"]) {
+                    echo "<div class='error'>".$error["message"]."</div>";
+                }
+            ?>
+        </form>
+            <?php
+        }
+        ?>
     </body>
 </html>

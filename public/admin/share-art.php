@@ -15,7 +15,8 @@
     <br>
     Image Source: '.$_POST["source"];
 
-    $headers = 'Content-type: text/html; charset=utf-8' . "\r\n";
+    $headers = 'Content-type: text/html; charset=utf-8' . "\r\n".
+        'From: shareart@raccoonjunkyard.com';
 
     if(mail ( "sergi.codina@movetia.com" , "Shared art" , $mailMessage, $headers )) {
         $imageSend = array(
@@ -27,4 +28,5 @@
             "recieved" => "KO"
         );
     }
+    echo json_encode($imageSend);
 ?>
