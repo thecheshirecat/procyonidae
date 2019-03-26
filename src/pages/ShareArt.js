@@ -30,7 +30,8 @@ class ShareArt extends Component {
         }, () => {
             var data = `artist=${this.state.imageArtist}&title=${this.state.imageTitle}&image=${this.state.imageUrl}&source=${this.state.imageSource}`
             fetch(SHARE_ART_URL, {
-                method: 'POST',headers: new Headers({
+                method: 'POST',
+                headers: new Headers({
                     'Content-Type': 'application/x-www-form-urlencoded'
                 }),
                 body: data

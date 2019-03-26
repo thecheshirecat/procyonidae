@@ -1,6 +1,7 @@
 <?php
+    //header('Access-Control-Allow-Origin: *');
     include("db.php");
-    header('Access-Control-Allow-Origin: *');
+    
     $query = "SELECT * FROM images WHERE id = ".$_GET["id"];
     $result = dbQuery($query);
 

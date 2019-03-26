@@ -20,6 +20,9 @@ class ImageDetail extends Component {
                 loaded: true,
                 imageData: data[0]
             })
+        })
+        .catch((error) => {
+            console.log(error);
         });
     }
     showImageDetail = () => {
