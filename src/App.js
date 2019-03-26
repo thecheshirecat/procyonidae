@@ -8,8 +8,9 @@ import Home from './pages/Home';
 import NewestContainer from './containers/NewestContainer'
 import GuestsContainer from './containers/GuestsContainer'
 import { NotFound } from './pages/NotFound';
-import { NEWEST_URL_, GUESTS_URL_, SHARE_ART_URL_ } from './constants';
+import { NEWEST_URL_, GUESTS_URL_, SHARE_ART_URL_, DETAIL_URL_ } from './constants';
 import ShareArtContainer from './containers/ShareArtContainer';
+import ImageDetailContainer from './containers/ImageDetailContainer';
 
 class App extends Component {
 	render() {
@@ -22,6 +23,7 @@ class App extends Component {
 						<Route path={`/${NEWEST_URL_}/:page?`} component={NewestContainer} />
 						<Route path={`/${GUESTS_URL_}/:page?`} component={GuestsContainer} />
 						<Route path={`/${SHARE_ART_URL_}/:page?`} component={ShareArtContainer} />
+						<Route path={`/${DETAIL_URL_}/:id/:title?`} component={ImageDetailContainer} />
 						<Route component={NotFound} />
 					</Switch>
 				</main>

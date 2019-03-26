@@ -3,6 +3,7 @@ import { IMAGE_URL, ART_URL } from './../constants/index';
 import ImageContent from './ImageContent';
 import Error from './Error';
 import PaginationContainer from '../containers/PaginationContainer';
+import LoadingImage from './Loading';
 
 /* URL to search the images */
 
@@ -35,6 +36,7 @@ class UploadedContent extends Component {
         .then(response => response.json())
         .then(data => {
             Object.keys(data).map( key => {
+                let url = encodeURI(data[key].title.replace(" ", "-"))
                 let image = {}
                 if( parseInt(data[key].guest) === 1 ) {
                     image = {
@@ -49,7 +51,7 @@ class UploadedContent extends Component {
                         "image": `${IMAGE_URL}/${data[key].path}`,
                         "author": data[key].author,
                         "title": data[key].title,
-                        "path": `/admin/${data[key].path}`
+                        "path": `detail/${data[key].id}/${url}`
                     }
                 }
                 images.push(image);
@@ -80,11 +82,7 @@ class UploadedContent extends Component {
                 </h2>
                     {
                         this.state.imagesLoaded === false 
-                        ? <div className="lds-ring">
-                            <div>
-                                <span>Loading images</span>
-                            </div>
-                        </div>
+                        ? <LoadingImage />
                         : this.state.images.length === 0
                         ? <Error>
                             <h1>No images where found =(</h1>

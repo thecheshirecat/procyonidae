@@ -11,7 +11,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        newCurrentPage: (page) => dispatch({
+        setCurrentPage: (page) => dispatch({
             type: CURRENT_PAGE,
             currentPage: page
         })

@@ -223,6 +223,25 @@ main {
 			padding: 0 20px;
 			
 		}
+		.imageDetail {
+			text-align: center;
+			h2 {
+				text-align: left;
+				margin-bottom: 13px;
+				font-family: 'Luckiest Guy';
+				@include textDecorated($white, $black, 24px);
+				span {
+					font-size: 12px;
+					font-family: system-ui;
+					font-style: italic;
+					text-shadow: none;
+					color: $black;
+				}
+			}
+			img {
+				max-width: 100%;
+			}
+		}
 	}
 }
 form {
