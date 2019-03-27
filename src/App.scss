@@ -119,9 +119,6 @@ main {
 			padding: 5px 20px;
 			@include textDecorated($white, $black, 14px);
 			text-transform: uppercase;
-			&.guest {
-				background-color: $mainGreen;
-			}
 			&::after {
 				@include pseudoElement(-7px, -7px, initial, initial);
 				width: 53px;
@@ -241,6 +238,24 @@ main {
 			}
 			img {
 				max-width: 100%;
+			}
+		}
+		.news {
+			background-color: $white;
+			border-radius: 2px;
+			overflow: hidden;
+			box-shadow: 0 1px 4px 0 $black;
+			h2 {
+				background-color: $black;
+				color: $white;
+				font-family: 'Luckiest Guy';
+				padding: 10px 20px 4px 20px;
+			}
+			.newsInfo {
+				padding: 10px 20px;
+				ul {
+					padding-left: 20px;
+				}
 			}
 		}
 	}
@@ -375,7 +390,7 @@ form {
 		background-color: $white;
 		border-radius: 10px;
 		padding: 20px;
-		max-width: 1280px;
+		max-width: 560px;
 		width: 100%;
 		p {
 			margin-bottom: 20px;

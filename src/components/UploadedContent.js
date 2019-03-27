@@ -77,7 +77,7 @@ class UploadedContent extends Component {
         var index = 0;
         return (
             <div className={`uploadSection`}>
-                <h2 className={this.props.additionalClasses}>
+                <h2>
                     {this.props.title}
                 </h2>
                     {

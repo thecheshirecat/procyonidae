@@ -2,6 +2,11 @@
 session_start();
 include("funcs.php");
 include("db.php");
+
+/*
+    TODO: upload thumbnail
+*/
+
 $form = array(
     "submit" => false,
     "message" => ""
