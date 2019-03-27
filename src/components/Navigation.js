@@ -55,11 +55,6 @@ class Navigation extends Component {
                             </li>
                         })
                     }
-                    {/* <li>
-                        <a href="/">
-                            <span>Donate</span>
-                        </a>
-                    </li> */}
                 </ul>
             </nav>
         )
