@@ -14,6 +14,7 @@ export const NEWEST_URL_ = 'newest';
 export const GUESTS_URL_ = 'guests';
 export const SHARE_ART_URL_ = 'share-your-art';
 export const DETAIL_URL_ = 'detail';
+export const POPULAR_URL_ = 'popular';
 
 export const HOME = 'HOME';
 export const NEWEST = 'NEWEST';

@@ -45,7 +45,7 @@ header {
 		font-family: 'Luckiest Guy';
 		font-weight: normal;
 		@include textDecorated($white, $black, 37px);
-		line-height: 20px;
+		line-height: 37px;
 		user-select: none;
 		transition-property: color, text-shadow;
 		transition-duration: .5s, .5s;
@@ -55,7 +55,8 @@ header {
 			span {
 				display: block;
 				font-size: 32px;
-				line-height: 22px;
+				line-height: 17px;
+				margin-top: -4px;
 			}
 		}
 		&:hover {
