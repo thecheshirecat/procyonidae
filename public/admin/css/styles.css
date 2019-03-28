@@ -44,6 +44,9 @@ form .success {
     border-radius: 2px;
     padding: 0 10px;
 }
+form p {
+    font-size: 11px;
+}
 form .guest {
     display: flex;
     flex-direction: row;

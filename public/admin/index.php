@@ -18,6 +18,7 @@ $error = array(
 if( isset($_POST["author"]) ) {
     $author = $_POST["author"];
     $title = $_POST["title"];
+    $guest = false;
     if( strlen($author) <= 0 || strlen($title) <= 0) {
         $error["error"] = true;
         $error["message"] = "Author and title must be specified.<br>";
@@ -31,20 +32,34 @@ if( isset($_POST["author"]) ) {
         $path = $ruta.$nombre;
 
         if( move_uploaded_file($image["tmp_name"], $path) ) {
+            if( is_uploaded_file($_FILES["thumbnail"]["tmp_name"]) ) {
+                $thumbnail = $_FILES["thumbnail"];
+                $thumb = changeFileName($thumbnail["name"]);
+                $rutaThumbnails = "thumbnails/";
+                $pathThumbnails = $rutaThumbnails.$thumb;
+                if( !move_uploaded_file($thumbnail["tmp_name"], $pathThumbnails) ) {
+                    $error["error"] = true;
+                    $error["message"] = "The thumbnail ".$thumbnail["name"]." couldn't be copied to our server.";
+                }
+            }
+            else {
+                $pathThumbnails = '';
+            }
             if( isset($_POST["guest"]) ) {
                 $source = $_POST["source"];
+                $guest = true;
                 if( strlen($source) <= 0) {
                     $error["error"] = true;
                     $error["message"] = "Source must be specified.<br>";
                 }
-                else {
-                    $query = "INSERT INTO images(author, title, path, guest, source) values('".$_POST['author']."', '".$_POST['title']."', '".$path."', 1, '".$_POST["source"]."')";
-                }
-            }
-            else {
-                $query = "INSERT INTO images(author, title, path) values('".$_POST['author']."', '".$_POST['title']."', '".$path."')";
             }
             if( !$error["error"] ) {
+                if( !$guest ) {
+                    $query = "INSERT INTO images(author, title, path, thumbnail) values('".$_POST['author']."', '".$_POST['title']."', '".$path."', '".$pathThumbnails."')";
+                }
+                else {
+                    $query = "INSERT INTO images(author, title, path, thumbnail, guest, source) values('".$_POST['author']."', '".$_POST['title']."', '".$path."', '".$pathThumbnails."', 1, '".$_POST["source"]."')";
+                }
                 if( dbUpdate($query) ) {
                     $form["submit"] = true;
                     $form["message"] = "Image ".$image["name"]." has been stored.";
@@ -97,7 +112,10 @@ if( isset($_POST["admin"]) ) {
             </div>
             <input type="text" name="author" value="<?= $_POST["author"]?>" placeholder="Artist">
             <input type="text" name="title" value="<?= $_POST["title"]?>" placeholder="Title">
+            <p>Main image:</p>
             <input type="file" name="image">
+            <p>Thumbnail:</p>
+            <input type="file" name="thumbnail">
             <div class="guest">
                 <p>Guest?</p>
                 <input type="checkbox" name="guest" value="1" <?php

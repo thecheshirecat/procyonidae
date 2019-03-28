@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import Button from '../components/Button';
 import { FEEDBACK_URL } from '../constants';
+import SmallForm from '../components/SmallForm';
+import FormInput from '../components/FormInput';
+import FormTextarea from '../components/FormTextarea';
 
 class BugForm extends Component {
     state = {
@@ -43,6 +46,11 @@ class BugForm extends Component {
     closeBugForm = () => {
         this.props.closeBugForm()
     }
+    setInputValue = (inputName, value) => {
+        this.setState({
+            [inputName]: value // Use [ ] to set the value to the key, in this case, the input name
+        })
+    }
     render () {
         return (
             <div className="bugForm">
@@ -58,27 +66,22 @@ class BugForm extends Component {
                                 <p>Did you found a bug while navigating our site?</p>
                                 <p>Do you know a way to improve it?</p>
                                 <p>Leave me your feedback to improve the site!</p>
-                                <form onSubmit={this.handleSubmit}>
-                                    <div className="inputContainer">
-                                        <input
-                                            type="text"
-                                            name="user"
-                                            placeholder="Username"
-                                            onChange={e => this.setState({username: e.target.value })} />
-                                    </div>
-                                    <div className="inputContainer">
-                                        <textarea
-                                            name="feedback"
-                                            placeholder="Your feedback here"
-                                            onChange={e => this.setState({feedback: e.target.value })}>
-                                            {this.state.feedback}
-                                        </textarea>
-                                    </div>
+                                <SmallForm submit={this.handleSubmit}>
+                                    <FormInput
+                                        type={"text"}
+                                        name={"username"}
+                                        placeholder={"Username"}
+                                        changeValue={this.setInputValue} />
+                                    <FormTextarea
+                                        name={"feedback"}
+                                        placeholder={"Your feedback here"}
+                                        text={this.state.feedback}
+                                        changeValue={this.setInputValue} />
                                     <Button 
                                         handleClick={() => null}
                                         text={'Send your feedback'}
                                         isDisabled={this.state.disabled} />
-                                </form>
+                                </SmallForm>
                             </div>
                             : this.state.feedbackSent === "OK"
                                 ? <div>

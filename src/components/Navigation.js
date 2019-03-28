@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 
-import { HOME, NEWEST, POPULAR, SHARE_ART, GUESTS, NEWEST_URL_, GUESTS_URL_, SHARE_ART_URL_ } from './../constants';
+import { HOME, NEWEST, POPULAR, SHARE_ART, GUESTS, NEWEST_URL_, GUESTS_URL_, SHARE_ART_URL_, USER_AREA_URL_, USER_AREA } from './../constants';
 
 /*
     Clicking the navigation will fire two actions:
@@ -35,6 +35,10 @@ class Navigation extends Component {
             {
                 name: SHARE_ART,
                 url: `/${SHARE_ART_URL_}`
+            },
+            {
+                name: USER_AREA,
+                url: `/${USER_AREA_URL_}`
             }
         ]
         return (

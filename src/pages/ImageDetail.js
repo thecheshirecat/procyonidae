@@ -5,6 +5,7 @@ import { DETAIL_URL, IMAGE_URL } from '../constants';
 class ImageDetail extends Component {
     constructor(props) {
         super(props)
+        
         this.props.setCurrentPage(1);
         this.state = {
             idImage: this.props.match.params.id,

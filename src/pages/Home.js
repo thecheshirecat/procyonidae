@@ -14,10 +14,19 @@ class Home extends Component {
                     <div className="news">
                         <h2>News</h2>
                         <div className="newsInfo">
-                            <p>We are showing you a list of improvements that are planned for the website at short term:</p>
+                            <p>We are showing you a list of improvements that are planned for the website.</p>
+                            <p>Short term:</p>
                             <ul>
-                                <li>Thumbnail previews for non-guests images</li>
+                                <li>
+                                    <span className="workDone">Thumbnail previews for non-guests images</span>
+                                </li>
                                 <li>Design for News section</li>
+                            </ul>
+                            <p>Mid term:</p>
+                            <ul>
+                                <li>
+                                    User area
+                                </li>
                             </ul>
                         </div>
                     </div>

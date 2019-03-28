@@ -255,6 +255,18 @@ main {
 				padding: 10px 20px;
 				ul {
 					padding-left: 20px;
+					margin-bottom: 20px;
+					li {
+						span {
+							&.workDone {
+								text-decoration: line-through;
+								color: green;
+							}
+						}
+					}
+				}
+				*:last-child {
+					margin-bottom: 0;
 				}
 			}
 		}

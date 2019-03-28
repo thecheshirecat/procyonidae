@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 
 class ImageContainer extends Component {
     render () {
+        let thumbnail = this.props.showThumbnail ? this.props.thumbnail : this.props.src
         return (
             <div className="imageThumbnailContainer">
                 <a className="thumbnail" href={this.props.link}>
-                    <div className="image" style={{backgroundImage: `url(${this.props.src})`}}></div>
+                    <div className="image" style={{backgroundImage: `url(${thumbnail})`}}></div>
                 </a>
                 <div className="imageInfo">
                     <span className="title">

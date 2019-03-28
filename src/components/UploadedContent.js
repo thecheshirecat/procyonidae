@@ -38,12 +38,18 @@ class UploadedContent extends Component {
             Object.keys(data).map( key => {
                 let url = encodeURI(data[key].title.replace(" ", "-"))
                 let image = {}
+                let showThumbnail = false
+                if( data[key].thumbnail.length > 0 ) {
+                    showThumbnail = true;
+                }
                 if( parseInt(data[key].guest) === 1 ) {
                     image = {
                         "image": `${IMAGE_URL}/${data[key].path}`,
                         "author": data[key].author,
                         "title": data[key].title,
-                        "path": data[key].source
+                        "path": data[key].source,
+                        "thumbnail": data[key].thumbnail,
+                        "showThumbnail": showThumbnail
                     }
                 }
                 else {
@@ -51,7 +57,9 @@ class UploadedContent extends Component {
                         "image": `${IMAGE_URL}/${data[key].path}`,
                         "author": data[key].author,
                         "title": data[key].title,
-                        "path": `detail/${data[key].id}/${url}`
+                        "path": `detail/${data[key].id}/${url}`,
+                        "thumbnail": `${IMAGE_URL}/${data[key].thumbnail}`,
+                        "showThumbnail": showThumbnail
                     }
                 }
                 images.push(image);
@@ -94,7 +102,9 @@ class UploadedContent extends Component {
                                     this.state.images.map( image => {
                                         // Image
                                         let imageObj = <ImageContent 
-                                            src={image.image} 
+                                            src={image.image}
+                                            thumbnail={image.thumbnail}
+                                            showThumbnail={image.showThumbnail}
                                             title={image.title} 
                                             author={image.author} 
                                             key={index}
