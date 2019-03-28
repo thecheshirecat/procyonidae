@@ -54,8 +54,8 @@ class BugForm extends Component {
     render () {
         return (
             <div className="bugForm">
-                <div className="bugFormContainer">
-                    <div className="bugFormHeader">
+                <div className="SmallFormContainer">
+                    <div className="SmallFormHeader">
                         <h2>Bug form</h2>
                         <span onClick={this.closeBugForm}>X</span>
                     </div>

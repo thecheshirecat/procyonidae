@@ -297,7 +297,9 @@ form {
 					}
 				}
 			}
-			&[type="text"] {
+			&[type="text"],
+			&[type="password"],
+			&[type="email"] {
 				border: 0;
 				padding: 10px 5px;
 				width: 100%;
@@ -396,37 +398,68 @@ form {
 		opacity: .3;
 		z-index: 1;
 	}
-	.bugFormContainer {
-		position: relative;
-		z-index: 2;
-		background-color: $white;
-		border-radius: 10px;
-		padding: 20px;
-		max-width: 560px;
-		width: 100%;
-		p {
-			margin-bottom: 20px;
-			.sendNew {
-				text-decoration: underline;
-				cursor: pointer;
-			}
+}
+.SmallFormContainer {
+	position: relative;
+	z-index: 2;
+	background-color: $white;
+	border-radius: 10px;
+	padding: 20px;
+	max-width: 560px;
+	width: 100%;
+	overflow: hidden;
+	margin: auto;
+	p {
+		margin-bottom: 20px;
+		.sendNew {
+			text-decoration: underline;
+			cursor: pointer;
 		}
-		.bugFormHeader {
-			display: flex;
-			flex-direction: row;
-			justify-content: space-between;
-			align-items: center;
-			border-bottom: 1px solid $gray;
+	}
+	.SmallFormHeader {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		border-bottom: 1px solid $gray;
+		font-family: 'Luckiest Guy';
+		margin-bottom: 20px;
+		text-transform: uppercase;
+		span {
+			display: block;
+			font-size: 18px;
+			padding: 5px;
+			cursor: pointer;
+		}
+	}
+}
+.tabContent {
+	display: flex;
+	flex-direction: column;
+	.tabs {
+		display: flex;
+		flex-direction: row;
+		border-bottom: 1px solid $gray;
+		margin: -20px;
+		margin-bottom: 20px;
+		.tab {
+			flex-grow: 1;
+			text-align: center;
+			cursor: pointer;
+			padding: 15px;
+			padding-bottom: 10px;
 			font-family: 'Luckiest Guy';
-			margin-bottom: 20px;
 			text-transform: uppercase;
-			span {
-				display: block;
-				font-size: 18px;
-				padding: 5px;
-				cursor: pointer;
+			&:first-child {
+				border-right: 1px solid $gray;
+			}
+			&:hover {
+				background-color: $gray;
+				color: $white;
 			}
 		}
+	}
+	.tabBody {
 	}
 }
 .lds-ring {
