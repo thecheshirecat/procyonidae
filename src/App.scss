@@ -277,7 +277,7 @@ form {
 		width: 50%;
 	}
 	.inputContainer {
-		margin-bottom: 20px;
+		margin-bottom: 10px;
 		textarea {
 			border: 1px solid $gray;
 			width: 100%;
@@ -306,6 +306,23 @@ form {
 				background-color: transparent;
 				border-bottom: 1px solid $gray;
 			}
+		}
+	}
+	.formMessages {
+		margin-top: 10px;
+		&.error {
+			p {
+				color: $error;
+			}
+		}
+		&.success {
+			p {
+				color: $success;
+			}
+		}
+		p {
+			margin-bottom: 0;
+			font-size: 12px;
 		}
 	}
 }

@@ -2,7 +2,9 @@ $mainBlue: #4467c7;
 $mainBlueActive: #2a4798;
 $white: #ffffff;
 $black: #000000;
-$gray: #b5b5b5;
+$gray: #b3b3b3;
+$error: #b32a2a;
+$success: #49a057;
 
 @mixin textDecorated($colorText, $colorBorder, $fontSize) {
     color: $colorText;

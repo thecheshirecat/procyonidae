@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { USER_AREA } from '../constants';
+import { USER_AREA, SIGN_IN_URL } from '../constants';
 import SmallForm from '../components/SmallForm';
 import FormInput from '../components/FormInput';
 import Button from '../components/Button';
+import FormMessages from '../components/FormMessages';
 
 class UserArea extends Component {
     constructor(props) {
@@ -18,12 +19,17 @@ class UserArea extends Component {
             tabs: {
                 "login": "Log in",
                 "signin": "Sign in"
-            }
+            },
+            formMessages: '',
+            formError: false,
+            disableSignIn: false
         }
     }
     setTab(tab) {
         this.setState({
-            tab
+            tab,
+            username: '',
+            password: ''
         })
     }
     setInputValue = (inputName, value) => {
@@ -31,8 +37,39 @@ class UserArea extends Component {
             [inputName]: value
         })
     }
+    handleSignIn = (e) => {
+        e.preventDefault();
+        this.setState({
+            FormMessages: '',
+            disableSignIn: true
+        }, () => {
+            let data = `username=${this.state.username}&password=${this.state.password}&email=${this.state.email}`;
+            fetch(SIGN_IN_URL, {
+                method: 'POST',
+                headers: new Headers({
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }),
+                body: data
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.message) {
+                    let Messages = data.message.map( (message, index) => {
+                        return <p key={index}>{message}</p>
+                    })
+                    this.setState({
+                        formMessages: Messages,
+                        formError: data["error"],
+                        disableSignIn: false
+                    })
+                }
+            })
+        })
+    }
+    handleLogin = (e) => {
+        e.preventDefault();
+    }
     render () {
-        var tabs = [];
         return (
             <div className="mainContainer">
                 <div className="SmallFormContainer">
@@ -56,40 +93,47 @@ class UserArea extends Component {
                             <p>This area is a work still in progress.</p>
                             <div className="bugFormBody">
                                 { this.state.tab === "login"
-                                    ? <SmallForm submit={this.handleSubmit}>
+                                    ? <SmallForm submit={this.handleLogin}>
                                         <FormInput
                                             type={"text"}
                                             name={"username"}
+                                            value={this.state.username}
                                             placeholder={"Username"}
                                             changeValue={this.setInputValue} />
                                         <FormInput
                                             type={"password"}
                                             name={"password"}
+                                            value={this.state.password}
                                             placeholder={"Password"}
                                             changeValue={this.setInputValue} />
                                         <Button 
                                             handleClick={() => null}
                                             text={'Log in'}/>
                                     </SmallForm>
-                                    : <SmallForm submit={this.handleSubmit}>
+                                    : <SmallForm submit={this.handleSignIn}>
                                         <FormInput
                                             type={"text"}
                                             name={"username"}
+                                            value={this.state.username}
                                             placeholder={"Username"}
                                             changeValue={this.setInputValue} />
                                             <FormInput
                                                 type={"password"}
                                                 name={"password"}
+                                                value={this.state.password}
                                                 placeholder={"Password"}
                                                 changeValue={this.setInputValue} />
                                             <FormInput
                                                 type={"email"}
                                                 name={"email"}
+                                                value={this.state.email}
                                                 placeholder={"email@domain.com"}
                                                 changeValue={this.setInputValue} />
                                         <Button 
                                             handleClick={() => null}
-                                            text={'Sign in'}/>
+                                            text={'Sign in'}
+                                            isDisabled={this.state.disableSignIn}/>
+                                        <FormMessages error={this.state.formError}>{this.state.formMessages}</FormMessages>
                                     </SmallForm>
                                 }
                             </div>

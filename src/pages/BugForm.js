@@ -70,6 +70,7 @@ class BugForm extends Component {
                                     <FormInput
                                         type={"text"}
                                         name={"username"}
+                                        value={this.state.username}
                                         placeholder={"Username"}
                                         changeValue={this.setInputValue} />
                                     <FormTextarea
