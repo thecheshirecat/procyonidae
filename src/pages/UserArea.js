@@ -14,7 +14,11 @@ class UserArea extends Component {
             tab: "login",
             username: '',
             password: '',
-            email: ''
+            email: '',
+            tabs: {
+                "login": "Log in",
+                "signin": "Sign in"
+            }
         }
     }
     setTab(tab) {
@@ -28,57 +32,70 @@ class UserArea extends Component {
         })
     }
     render () {
+        var tabs = [];
         return (
-            <div className="SmallFormContainer">
-                <div className="tabContent">
-                    <div className="tabs">
-                        <div className="tab" onClick={() => this.setTab("login")}>Log in</div>
-                        <div className="tab" onClick={() => this.setTab("signin")}>Sign in</div>
-                    </div>
-                    <div className="tabBody">
-                        <p>This area is a work still in progress.</p>
-                        <div className="bugFormBody">
-                            { this.state.tab === "login"
-                                ? <SmallForm submit={this.handleSubmit}>
-                                    <FormInput
-                                        type={"text"}
-                                        name={"username"}
-                                        placeholder={"Username"}
-                                        changeValue={this.setInputValue} />
-                                    <FormInput
-                                        type={"password"}
-                                        name={"password"}
-                                        placeholder={"Password"}
-                                        changeValue={this.setInputValue} />
-                                    <Button 
-                                        handleClick={() => null}
-                                        text={'Log in'}/>
-                                </SmallForm>
-                                : <SmallForm submit={this.handleSubmit}>
-                                    <FormInput
-                                        type={"text"}
-                                        name={"username"}
-                                        placeholder={"Username"}
-                                        changeValue={this.setInputValue} />
+            <div className="mainContainer">
+                <div className="SmallFormContainer">
+                    <div className="tabContent">
+                        <div className="tabs">
+                            {
+                                Object.keys(this.state.tabs).map( (key) => {
+                                    let active = '';
+                                    if(key === this.state.tab)
+                                        active = 'active'
+                                    return (<div
+                                        onClick={() => this.setTab(key)}
+                                        key={key}
+                                        className={`tab ${active}`}>
+                                        {this.state.tabs[key]}
+                                    </div>)
+                                })
+                            }
+                        </div>
+                        <div className="tabBody">
+                            <p>This area is a work still in progress.</p>
+                            <div className="bugFormBody">
+                                { this.state.tab === "login"
+                                    ? <SmallForm submit={this.handleSubmit}>
+                                        <FormInput
+                                            type={"text"}
+                                            name={"username"}
+                                            placeholder={"Username"}
+                                            changeValue={this.setInputValue} />
                                         <FormInput
                                             type={"password"}
                                             name={"password"}
                                             placeholder={"Password"}
                                             changeValue={this.setInputValue} />
+                                        <Button 
+                                            handleClick={() => null}
+                                            text={'Log in'}/>
+                                    </SmallForm>
+                                    : <SmallForm submit={this.handleSubmit}>
                                         <FormInput
-                                            type={"email"}
-                                            name={"email"}
-                                            placeholder={"email@domain.com"}
+                                            type={"text"}
+                                            name={"username"}
+                                            placeholder={"Username"}
                                             changeValue={this.setInputValue} />
-                                    <Button 
-                                        handleClick={() => null}
-                                        text={'Sign in'}/>
-                                </SmallForm>
-                            }
+                                            <FormInput
+                                                type={"password"}
+                                                name={"password"}
+                                                placeholder={"Password"}
+                                                changeValue={this.setInputValue} />
+                                            <FormInput
+                                                type={"email"}
+                                                name={"email"}
+                                                placeholder={"email@domain.com"}
+                                                changeValue={this.setInputValue} />
+                                        <Button 
+                                            handleClick={() => null}
+                                            text={'Sign in'}/>
+                                    </SmallForm>
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>
-                
             </div>
         )
     }
