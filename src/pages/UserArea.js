@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { USER_AREA, SIGN_IN_URL } from '../constants';
+import { USER_AREA, SIGN_IN_URL, LOG_IN_URL } from '../constants';
 import SmallForm from '../components/SmallForm';
 import FormInput from '../components/FormInput';
 import Button from '../components/Button';
@@ -68,11 +68,32 @@ class UserArea extends Component {
     }
     handleLogin = (e) => {
         e.preventDefault();
+        this.setState({
+            FormMessages: '',
+            disableSignIn: true
+        }, () => {
+            var data = `username=${this.state.username}&password=${this.state.password}`;
+            fetch(LOG_IN_URL, {
+                method: 'POST',
+                headers: new Headers({
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }),
+                body: data
+            })
+            .then(response => response.json())
+            .then(data => {
+                let user = data[0]
+                this.props.setLogin(user["id"], user["username"], user["email"])
+            })
+        });
     }
     render () {
         return (
             <div className="mainContainer">
-                <div className="SmallFormContainer">
+                {
+                    this.props.logged
+                    ? <div>Hello {this.props.usernameLogin}</div>
+                    : <div className="SmallFormContainer">
                     <div className="tabContent">
                         <div className="tabs">
                             {
@@ -140,6 +161,7 @@ class UserArea extends Component {
                         </div>
                     </div>
                 </div>
+                }
             </div>
         )
     }

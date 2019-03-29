@@ -1,12 +1,15 @@
 import { connect } from 'react-redux';
 
-import { CHANGE_SECTION, CURRENT_PAGE } from '../constants';
+import { CHANGE_SECTION, CURRENT_PAGE, LOGIN } from '../constants';
 import UserArea from '../pages/UserArea';
 
 const mapStateToProps = state => {
     return {
         section: state.section,
-        currentPage: state.currentPage
+        currentPage: state.currentPage,
+        logged: state.logged,
+        idLogin: state.idLogin,
+        usernameLogin: state.usernameLogin
     }
 }
 
@@ -19,6 +22,13 @@ const mapDispatchToProps = dispatch => {
         setCurrentPage: (page) => dispatch({
             type: CURRENT_PAGE,
             currentPage: page
+        }),
+        setLogin: (id, username, email) => dispatch({
+            type: LOGIN,
+            idLogin: id,
+            usernameLogin: username,
+            emailLogin: email,
+            logged: true
         })
     }
 }
