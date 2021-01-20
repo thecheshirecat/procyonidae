@@ -6,7 +6,7 @@ import ReCAPTCHA from 'react-google-recaptcha';
 
 const recaptchaRef = React.createRef();
 const TESTKEY = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
-const KEY = "6Ld_4JkUAAAAAL__co5gAX6QtuEkKQDTyYQ9V-aY"
+// const KEY = "6Ld_4JkUAAAAAL__co5gAX6QtuEkKQDTyYQ9V-aY"
 
 class ShareArt extends Component {
     constructor(props) {
@@ -43,6 +43,9 @@ class ShareArt extends Component {
                     disabled: true,
                     imageSent: data.recieved
                 })
+            })
+            .catch(error => {
+                console.log(error)
             })
         })
     }
@@ -88,7 +91,7 @@ class ShareArt extends Component {
                         </div>
                         <div className="inputContainer">
                             <ReCAPTCHA
-                                sitekey={KEY}
+                                sitekey={TESTKEY}
                                 onChange={() => {
                                     this.setState({disabled: false})
                                     }

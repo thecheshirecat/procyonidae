@@ -302,6 +302,7 @@ form {
 			&[type="email"] {
 				border: 0;
 				padding: 10px 5px;
+				padding-top: 0;
 				width: 100%;
 				background-color: transparent;
 				border-bottom: 1px solid $gray;
